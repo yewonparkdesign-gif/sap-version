@@ -355,6 +355,7 @@
   }
 
   .text-gradient {
+    color: var(--color-ink);
     background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-ink-muted) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -362,6 +363,7 @@
   }
 
   .text-gradient-accent {
+    color: var(--sap-blue-6);
     background: linear-gradient(135deg, var(--sap-blue-9) 0%, var(--sap-blue-6) 60%, var(--sap-teal-5) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
