@@ -131,6 +131,7 @@ export interface NavItem {
   label: string;
   href: string;
   icon?: string;
+  iconColor?: string;
   badge?: string;
   children?: NavItem[];
 }
@@ -138,5 +139,6 @@ export interface NavItem {
 export interface NavSection {
   title: string;
   pinned?: boolean;
+  iconColor?: string;
   items: NavItem[];
 }

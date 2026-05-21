@@ -10,19 +10,19 @@ interface CalloutProps {
 }
 
 const styles: Record<CalloutVariant, { bg: string; border: string; label: string }> = {
-  info: { bg: "bg-blue-500/[0.08]", border: "border-blue-500/20", label: "Note" },
-  warning: { bg: "bg-yellow-500/[0.08]", border: "border-yellow-500/20", label: "Warning" },
-  insight: { bg: "bg-violet-500/[0.08]", border: "border-violet-500/20", label: "Insight" },
-  note: { bg: "bg-[var(--color-glass-bg)]", border: "border-[var(--color-border)]", label: "Note" },
+  info:    { bg: "bg-[var(--sap-blue-6)]/[0.08]",   border: "border-[var(--sap-blue-6)]/20",   label: "Note" },
+  warning: { bg: "bg-[var(--sap-mango-5)]/[0.08]",  border: "border-[var(--sap-mango-5)]/20",  label: "Warning" },
+  insight: { bg: "bg-[var(--sap-indigo-5)]/[0.08]", border: "border-[var(--sap-indigo-5)]/20", label: "Insight" },
+  note:    { bg: "bg-[var(--color-glass-bg)]",       border: "border-[var(--color-border)]",    label: "Note" },
 };
 
 function CalloutIcon({ variant }: { variant: CalloutVariant }) {
   const cls = "shrink-0 mt-0.5";
   switch (variant) {
-    case "info": return <Info size={14} className={cn(cls, "text-blue-400")} />;
-    case "warning": return <AlertTriangle size={14} className={cn(cls, "text-yellow-400")} />;
-    case "insight": return <Lightbulb size={14} className={cn(cls, "text-violet-400")} />;
-    case "note": return <StickyNote size={14} className={cn(cls, "text-[var(--color-ink-subtle)]")} />;
+    case "info":    return <Info size={14} className={cn(cls, "text-[var(--sap-blue-6)]")} />;
+    case "warning": return <AlertTriangle size={14} className={cn(cls, "text-[var(--sap-mango-5)]")} />;
+    case "insight": return <Lightbulb size={14} className={cn(cls, "text-[var(--sap-indigo-5)]")} />;
+    case "note":    return <StickyNote size={14} className={cn(cls, "text-[var(--color-ink-subtle)]")} />;
   }
 }
 

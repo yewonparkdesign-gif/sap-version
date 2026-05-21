@@ -31,9 +31,9 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
     case "heading": {
       const Tag = `h${block.level}` as "h2" | "h3" | "h4";
       const styles = {
-        h2: "text-[1.75rem] font-bold tracking-tight text-[var(--color-ink)] mt-14 mb-5 pb-3 border-b border-[var(--color-border)]",
-        h3: "text-[1.25rem] font-semibold text-[var(--color-ink)] mt-10 mb-4",
-        h4: "text-[1rem] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mt-8 mb-3",
+        h2: "text-[1.75rem] font-medium tracking-tight text-[var(--color-ink)] mt-14 mb-5 pb-3 border-b border-[var(--color-border)]",
+        h3: "text-[1.25rem] font-medium text-[var(--color-ink)] mt-10 mb-4",
+        h4: "text-[1rem] font-medium text-[var(--color-ink-muted)] uppercase tracking-wider mt-8 mb-3",
       };
       return (
         <motion.div

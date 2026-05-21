@@ -2,64 +2,307 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-ExtraLightItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Book.otf") format("opentype");
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-BookItalic.otf") format("opentype");
+  font-weight: 450;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "72Brand";
+  src: url("/fonts/72Brand-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --font-sans: "Inter", system-ui, sans-serif;
+    /* SAP 72 brand font */
+    --font-sans: "72Brand", Arial, Helvetica, sans-serif;
     --font-mono: "JetBrains Mono", monospace;
 
-    /* Light mode
-       Contrast ratios on #ffffff:
-         ink (#0a0a0f):        21:1  ✓
-         ink-muted (#383852):   9.9:1 ✓
-         ink-subtle (#555570):  6.3:1 ✓ AA
-         ink-faint (#b0b0c8):   2.0:1 — decorative only
-    */
+    /* SAP Color Palette — naming matches the Visual Design System exactly */
+
+    /* Grey 1–11 */
+    --grey-1:  #F5F6F7;
+    --grey-2:  #EAECEE;
+    --grey-3:  #D5D8DD;
+    --grey-4:  #B0B8C0;
+    --grey-5:  #8394A5;
+    --grey-6:  #556B7D;
+    --grey-7:  #475E75;
+    --grey-8:  #354A5E;
+    --grey-9:  #223548;
+    --grey-10: #1A2733;
+    --grey-11: #121721;
+
+    /* Red 1–11 */
+    --red-1:  #FFEAF4;
+    --red-2:  #FFD5EA;
+    --red-3:  #FFB2D2;
+    --red-4:  #FF8CB2;
+    --red-5:  #FF5C77;
+    --red-6:  #EE3939;
+    --red-7:  #D20000;
+    --red-8:  #AA0000;
+    --red-9:  #840000;
+    --red-10: #5A0404;
+    --red-11: #350000;
+
+    /* Mango 1–11 */
+    --mango-1:  #FFFBD6;
+    --mango-2:  #FFF3BB;
+    --mango-3:  #FFE572;
+    --mango-4:  #FFC300;
+    --mango-5:  #FFB800;
+    --mango-6:  #E78C07;
+    --mango-7:  #C32008;
+    --mango-8:  #AC0008;
+    --mango-9:  #8D0200;
+    --mango-10: #601900;
+    --mango-11: #450800;
+
+    /* Green 1–11 */
+    --green-1:  #F5FAE5;
+    --green-2:  #E3F2B5;
+    --green-3:  #BDE366;
+    --green-4:  #8DC123;
+    --green-5:  #5DC122;
+    --green-6:  #38A832;
+    --green-7:  #188918;
+    --green-8:  #43653D;
+    --green-9:  #256F3A;
+    --green-10: #154F23;
+    --green-11: #0D3818;
+
+    /* Teal 1–11 */
+    --teal-1:  #DAF0F0;
+    --teal-2:  #C2FCEE;
+    --teal-3:  #44ED02;
+    --teal-4:  #30DBBC;
+    --teal-5:  #0B8A8F;
+    --teal-6:  #046C7A;
+    --teal-7:  #035663;
+    --teal-8:  #02414C;
+    --teal-9:  #012933;
+    --teal-10: #02414C;
+    --teal-11: #012933;
+
+    /* Blue 1–11 */
+    --blue-1:  #EBFFFF;
+    --blue-2:  #D1EFFF;
+    --blue-3:  #A6EDFF;
+    --blue-4:  #8BB1FF;
+    --blue-5:  #4488FF;
+    --blue-6:  #0070F2;
+    --blue-7:  #0057F2;
+    --blue-8:  #0050F2;
+    --blue-9:  #0040BB;
+    --blue-10: #002485;
+    --blue-11: #00144A;
+
+    /* Indigo 1–11 */
+    --indigo-1:  #F1CCFF;
+    --indigo-2:  #E528FF;
+    --indigo-3:  #C528FF;
+    --indigo-4:  #8B94FF;
+    --indigo-5:  #7E7FFF;
+    --indigo-6:  #5C32D5;
+    --indigo-7:  #4E39CD;
+    --indigo-8:  #4B47C1;
+    --indigo-9:  #3C134D;
+    --indigo-10: #1C0058;
+    --indigo-11: #0E0637;
+
+    /* Pink 1–11 */
+    --pink-1:  #FFFDF4;
+    --pink-2:  #FFDCF3;
+    --pink-3:  #FFAFED;
+    --pink-4:  #FF8AF2;
+    --pink-5:  #FF5AF2;
+    --pink-6:  #F31BBB;
+    --pink-7:  #CC000C;
+    --pink-8:  #BB006C;
+    --pink-9:  #78006A;
+    --pink-10: #5B1080;
+    --pink-11: #220044;
+
+    /* Raspberry 1–11 */
+    --raspberry-1:  #FFFFF5;
+    --raspberry-2:  #FFD0CE;
+    --raspberry-3:  #FFBCBE;
+    --raspberry-4:  #FFEAC6;
+    --raspberry-5:  #F0AF36;
+    --raspberry-6:  #DF1278;
+    --raspberry-7:  #BB006C;
+    --raspberry-8:  #8B005D;
+    --raspberry-9:  #B80157;
+    --raspberry-10: #871150;
+    --raspberry-11: #510136;
+
+    /* Aliases for existing component references */
+    --sap-blue-1: var(--blue-1);   --sap-blue-2: var(--blue-2);   --sap-blue-3: var(--blue-3);
+    --sap-blue-4: var(--blue-4);   --sap-blue-5: var(--blue-5);   --sap-blue-6: var(--blue-6);
+    --sap-blue-7: var(--blue-7);   --sap-blue-8: var(--blue-8);   --sap-blue-9: var(--blue-9);
+    --sap-blue-10: var(--blue-10); --sap-blue-11: var(--blue-11);
+    --sap-grey-1: var(--grey-1);   --sap-grey-2: var(--grey-2);   --sap-grey-3: var(--grey-3);
+    --sap-grey-4: var(--grey-4);   --sap-grey-5: var(--grey-5);   --sap-grey-6: var(--grey-6);
+    --sap-grey-7: var(--grey-7);   --sap-grey-8: var(--grey-8);   --sap-grey-9: var(--grey-9);
+    --sap-grey-10: var(--grey-10); --sap-grey-11: var(--grey-11);
+    --sap-teal-5: var(--teal-5);   --sap-teal-6: var(--teal-6);
+    --sap-green-5: var(--green-5); --sap-green-6: var(--green-6);
+    --sap-mango-5: var(--mango-5); --sap-mango-6: var(--mango-6);
+    --sap-red-5: var(--red-6);     --sap-red-6: var(--red-7);
+    --sap-indigo-5: var(--indigo-5);
+    --sap-pink-5: var(--pink-6);
+    --sap-raspberry-5: var(--raspberry-6);
+
+    /* Light mode semantic tokens */
     --color-canvas:          #ffffff;
-    --color-canvas-soft:     #fdfdfd;
-    --color-canvas-raised:   #f8f8f9;
-    --color-canvas-overlay:  #f2f2f4;
-    --color-ink:             #0a0a0f;
-    --color-ink-muted:       #383852;
-    --color-ink-subtle:      #555570;
-    --color-ink-faint:       #b0b0c8;
-    --color-border:          rgba(0,0,0,0.04);
-    --color-border-strong:   rgba(0,0,0,0.08);
-    --color-glass-bg:        rgba(0,0,0,0.015);
-    --color-glass-active-bg: rgba(0,0,0,0.04);
-    --color-glass-border:    rgba(0,0,0,0.035);
-    --color-glass-subtle-bg: rgba(0,0,0,0.008);
-    --color-scrollbar:       rgba(0,0,0,0.14);
-    --color-scrollbar-hover: rgba(0,0,0,0.22);
-    --color-selection:       rgba(0,112,243,0.18);
-    --color-selection-text:  #0a0a0f;
+    --color-canvas-soft:     var(--sap-grey-1);
+    --color-canvas-raised:   #F8F9FA;
+    --color-canvas-overlay:  var(--sap-grey-1);
+    --color-ink:             var(--sap-grey-11);
+    --color-ink-muted:       var(--sap-grey-9);
+    --color-ink-subtle:      var(--sap-grey-6);
+    --color-ink-faint:       var(--sap-grey-4);
+    --color-border:          rgba(53,74,94,0.08);
+    --color-border-strong:   rgba(53,74,94,0.16);
+    --color-glass-bg:        rgba(0,112,242,0.04);
+    --color-glass-active-bg: rgba(0,112,242,0.08);
+    --color-glass-border:    rgba(0,112,242,0.12);
+    --color-glass-subtle-bg: rgba(0,112,242,0.02);
+    --color-scrollbar:       rgba(53,74,94,0.18);
+    --color-scrollbar-hover: rgba(53,74,94,0.28);
+    --color-selection:       rgba(0,112,242,0.18);
+    --color-selection-text:  var(--sap-grey-11);
+    --color-accent:          var(--sap-blue-6);
+    --color-accent-hover:    var(--sap-blue-7);
+    --color-accent-soft:     #E8F2FE;
   }
 
   .dark {
-    /* Dark mode
-       Contrast ratios on #0a0a0f:
-         ink (#f0f0f5):        18.8:1 ✓
-         ink-muted (#9090a8):   5.4:1 ✓ AA
-         ink-subtle (#7878a0):  4.5:1 ✓ AA
-         ink-faint (#404058):   2.1:1 — decorative only
-    */
-    --color-canvas:          #0a0a0f;
-    --color-canvas-soft:     #0f0f18;
-    --color-canvas-raised:   #141420;
-    --color-canvas-overlay:  #1a1a28;
-    --color-ink:             #f0f0f5;
-    --color-ink-muted:       #9e9eb5;
-    --color-ink-subtle:      #7878a0;
-    --color-ink-faint:       #404058;
-    --color-border:          rgba(255,255,255,0.08);
-    --color-border-strong:   rgba(255,255,255,0.15);
-    --color-glass-bg:        rgba(255,255,255,0.06);
-    --color-glass-active-bg: rgba(255,255,255,0.03);
-    --color-glass-border:    rgba(255,255,255,0.09);
-    --color-glass-subtle-bg: rgba(255,255,255,0.03);
-    --color-scrollbar:       rgba(255,255,255,0.12);
-    --color-scrollbar-hover: rgba(255,255,255,0.20);
-    --color-selection:       rgba(0,112,243,0.30);
-    --color-selection-text:  #f0f0f5;
+    --color-canvas:          var(--sap-grey-11);
+    --color-canvas-soft:     var(--sap-grey-10);
+    --color-canvas-raised:   var(--sap-grey-10);
+    --color-canvas-overlay:  var(--sap-grey-9);
+    --color-ink:             var(--sap-grey-1);
+    --color-ink-muted:       var(--sap-grey-4);
+    --color-ink-subtle:      var(--sap-grey-5);
+    --color-ink-faint:       var(--sap-grey-8);
+    --color-border:          rgba(176,184,192,0.10);
+    --color-border-strong:   rgba(176,184,192,0.18);
+    --color-glass-bg:        rgba(0,112,242,0.08);
+    --color-glass-active-bg: rgba(0,112,242,0.05);
+    --color-glass-border:    rgba(0,112,242,0.18);
+    --color-glass-subtle-bg: rgba(0,112,242,0.04);
+    --color-scrollbar:       rgba(176,184,192,0.14);
+    --color-scrollbar-hover: rgba(176,184,192,0.24);
+    --color-selection:       rgba(0,112,242,0.35);
+    --color-selection-text:  var(--sap-grey-1);
+    --color-accent:          var(--sap-blue-5);
+    --color-accent-hover:    var(--sap-blue-4);
+    --color-accent-soft:     rgba(0,112,242,0.18);
   }
 
   * {
@@ -78,6 +321,7 @@
     font-family: var(--font-sans);
     min-height: 100dvh;
     transition: background-color 0.2s ease, color 0.2s ease;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   /* Scrollbar */
@@ -118,14 +362,14 @@
   }
 
   .text-gradient-accent {
-    background: linear-gradient(135deg, var(--color-ink) 0%, #0070f3 100%);
+    background: linear-gradient(135deg, var(--sap-blue-9) 0%, var(--sap-blue-6) 60%, var(--sap-teal-5) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glow-accent {
-    box-shadow: 0 0 60px rgba(0,112,243,0.15), 0 0 120px rgba(0,112,243,0.05);
+    box-shadow: 0 0 60px rgba(0,112,242,0.18), 0 0 120px rgba(0,112,242,0.07);
   }
 
   .surface {

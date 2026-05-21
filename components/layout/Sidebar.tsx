@@ -20,7 +20,7 @@ function SapLogo() {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ opacity: 0.75, scale: 1.04 }}
       whileTap={{ scale: 0.97, opacity: 0.6 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
     />
   );
 }
@@ -58,15 +58,18 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
                         href={item.href}
                         onClick={onLinkClick}
                         className={cn(
-                          "flex items-center justify-between rounded-xl transition-all duration-150 uppercase tracking-widest",
+                          "flex items-center gap-2 rounded-xl transition-all duration-150 uppercase tracking-widest",
                           mobile
-                            ? "px-4 py-3.5 text-[22px] font-bold tracking-tight"
-                            : "px-3 py-2 text-[11px] font-extrabold",
+                            ? "px-4 py-3.5 text-[22px] font-medium tracking-tight"
+                            : "px-3 py-2 text-[11px] font-medium",
                           isActive
                             ? "bg-[var(--color-glass-active-bg)] text-[var(--color-ink)]"
                             : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-glass-bg)]"
                         )}
                       >
+                        {item.iconColor && (
+                          <span className="inline-block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.iconColor }} />
+                        )}
                         {item.label}
                       </Link>
                     </li>
@@ -90,15 +93,18 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
               )}
             >
               <span className={cn(
-                "font-extrabold uppercase tracking-widest text-[var(--color-ink-muted)] transition-colors",
+                "flex items-center gap-1.5 font-medium uppercase tracking-widest text-[var(--color-ink-muted)] transition-colors",
                 mobile ? "text-[11px]" : "text-[11px]"
               )}>
+                {section.iconColor && (
+                  <span className="inline-block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: section.iconColor }} />
+                )}
                 {section.title}
               </span>
               <ChevronDown
                 size={mobile ? 15 : 13}
                 className={cn(
-                  "text-[var(--color-ink-faint)] group-hover:text-[var(--color-ink-subtle)] transition-all duration-200",
+                  "text-[var(--color-ink-muted)] transition-all duration-200",
                   isCollapsed && "-rotate-90"
                 )}
               />
@@ -121,18 +127,29 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
                           href={item.href}
                           onClick={onLinkClick}
                           className={cn(
-                            "flex items-center justify-between rounded-xl transition-all duration-150",
-                            mobile
-                              ? "px-4 py-3 text-[18px] font-medium"
-                              : "px-3 py-2 text-[13px]",
+                            "relative flex items-center justify-between rounded-xl transition-all duration-300 ease-in-out",
+                            mobile ? "px-4 py-3 text-[18px]" : "px-3 py-2 text-[13px]",
                             isActive
-                              ? "bg-[var(--color-glass-active-bg)] text-[var(--color-ink)] font-semibold"
+                              ? "bg-[var(--color-glass-active-bg)] text-[var(--color-ink)]"
                               : "text-[var(--color-ink-subtle)] hover:text-[var(--color-ink)] hover:bg-[var(--color-glass-bg)]"
                           )}
                         >
-                          <span>{item.label}</span>
+                          <span
+                            className="transition-opacity duration-300 ease-in-out font-normal"
+                            style={{ opacity: isActive ? 0 : 1, position: isActive ? "absolute" : "relative" }}
+                            aria-hidden={isActive}
+                          >
+                            {item.label}
+                          </span>
+                          <span
+                            className="transition-opacity duration-300 ease-in-out font-medium"
+                            style={{ opacity: isActive ? 1 : 0, position: isActive ? "relative" : "absolute" }}
+                            aria-hidden={!isActive}
+                          >
+                            {item.label}
+                          </span>
                           {item.badge && (
-                            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-accent/20 text-accent">
+                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-accent/20 text-accent">
                               {item.badge}
                             </span>
                           )}

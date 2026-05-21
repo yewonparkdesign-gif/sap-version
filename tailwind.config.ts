@@ -10,11 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        sans: ["72Brand", "Arial", "Helvetica", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       colors: {
-        // All semantic colors point to CSS variables — both modes are handled in globals.css
         canvas: {
           DEFAULT: "var(--color-canvas)",
           soft: "var(--color-canvas-soft)",
@@ -32,13 +31,57 @@ const config: Config = {
           strong: "var(--color-border-strong)",
         },
         accent: {
-          DEFAULT: "#0070f3",
-          soft: "#1a7fff",
-          dim: "rgba(0,112,243,0.15)",
+          DEFAULT: "var(--color-accent)",
+          hover: "var(--color-accent-hover)",
+          soft: "var(--color-accent-soft)",
+          dim: "rgba(0,112,242,0.15)",
+        },
+        // SAP full palette
+        "sap-blue": {
+          1: "var(--sap-blue-1)",
+          2: "var(--sap-blue-2)",
+          3: "var(--sap-blue-3)",
+          4: "var(--sap-blue-4)",
+          5: "var(--sap-blue-5)",
+          6: "var(--sap-blue-6)",
+          7: "var(--sap-blue-7)",
+          8: "var(--sap-blue-8)",
+          9: "var(--sap-blue-9)",
+          10: "var(--sap-blue-10)",
+          11: "var(--sap-blue-11)",
+        },
+        "sap-grey": {
+          1: "var(--sap-grey-1)",
+          2: "var(--sap-grey-2)",
+          3: "var(--sap-grey-3)",
+          4: "var(--sap-grey-4)",
+          5: "var(--sap-grey-5)",
+          6: "var(--sap-grey-6)",
+          7: "var(--sap-grey-7)",
+          8: "var(--sap-grey-8)",
+          9: "var(--sap-grey-9)",
+          10: "var(--sap-grey-10)",
+          11: "var(--sap-grey-11)",
+        },
+        "sap-teal": {
+          5: "var(--sap-teal-5)",
+          6: "var(--sap-teal-6)",
+        },
+        "sap-green": {
+          5: "var(--sap-green-5)",
+          6: "var(--sap-green-6)",
+        },
+        "sap-mango": {
+          5: "var(--sap-mango-5)",
+          6: "var(--sap-mango-6)",
+        },
+        "sap-red": {
+          5: "var(--sap-red-5)",
+          6: "var(--sap-red-6)",
         },
         gold: {
-          DEFAULT: "#f5a623",
-          dim: "rgba(245,166,35,0.12)",
+          DEFAULT: "var(--sap-mango-5)",
+          dim: "rgba(231,140,7,0.12)",
         },
       },
       spacing: {
@@ -76,7 +119,7 @@ const config: Config = {
         DEFAULT: {
           css: {
             color: "var(--color-ink-muted)",
-            a: { color: "#0070f3" },
+            a: { color: "var(--color-accent)" },
             h1: { color: "var(--color-ink)" },
             h2: { color: "var(--color-ink)" },
             h3: { color: "var(--color-ink)" },

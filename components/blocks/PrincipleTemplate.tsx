@@ -46,7 +46,7 @@ export function PrincipleTemplate({ page }: PrincipleTemplateProps) {
           viewport={viewport}
           className="my-10 p-6 rounded-2xl bg-[var(--color-canvas-raised)] border border-[var(--color-border)]"
         >
-          <div className="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-ink-subtle)] mb-4">
+          <div className="text-[11px] font-medium uppercase tracking-widest text-[var(--color-ink-subtle)] mb-4">
             Key Ideas
           </div>
           <motion.ul
@@ -62,7 +62,7 @@ export function PrincipleTemplate({ page }: PrincipleTemplateProps) {
                 variants={fadeUp}
                 className="flex items-start gap-3 text-[14px] text-[var(--color-ink-muted)]"
               >
-                <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[10px] font-medium flex items-center justify-center shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 {idea}

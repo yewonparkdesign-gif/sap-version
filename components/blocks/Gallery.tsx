@@ -90,8 +90,8 @@ export function Gallery({ images, columns = 3, className }: GalleryProps) {
                   className="object-contain"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-[#141420] rounded-2xl">
-                  <span className="text-[#9090a8]">{images[lightbox].alt}</span>
+                <div className="w-full h-full flex items-center justify-center bg-[var(--sap-grey-10)] rounded-2xl">
+                  <span className="text-[var(--sap-grey-5)]">{images[lightbox].alt}</span>
                 </div>
               )}
             </motion.div>

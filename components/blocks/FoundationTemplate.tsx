@@ -17,6 +17,7 @@ export function FoundationTemplate({ page }: FoundationTemplateProps) {
         tags={page.tags}
         status={page.status}
         lastUpdated={page.lastUpdated}
+        showDate={page.slug === "visual-direction"}
       />
       <ContentRenderer blocks={page.blocks} />
     </PageWrapper>

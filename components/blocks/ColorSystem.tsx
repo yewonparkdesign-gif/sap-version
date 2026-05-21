@@ -12,7 +12,7 @@ export function ColorSystem({ groups, className }: ColorSystemProps) {
       {groups.map((group) => (
         <div key={group.name}>
           <div className="mb-4">
-            <h3 className="text-[15px] font-semibold text-[var(--color-ink)]">{group.name}</h3>
+            <h3 className="text-[15px] font-medium text-[var(--color-ink)]">{group.name}</h3>
             {group.description && (
               <p className="text-[13px] text-[var(--color-ink-muted)] mt-1">{group.description}</p>
             )}
