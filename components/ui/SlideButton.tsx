@@ -27,7 +27,7 @@ export function SlideButton({ href, children, variant = "primary", className }: 
   const base =
     variant === "primary"
       ? "bg-accent text-white"
-      : "glass text-ink-muted";
+      : "glass text-[var(--color-ink-muted)]";
 
   return (
     <Link href={href}>
@@ -39,7 +39,7 @@ export function SlideButton({ href, children, variant = "primary", className }: 
       >
         {/* Slide-in highlight layer */}
         <motion.span
-          className={`slide-bg absolute inset-0 origin-left ${variant === "primary" ? "bg-white/10" : "bg-white/[0.05]"}`}
+          className={`slide-bg absolute inset-0 origin-left ${variant === "primary" ? "bg-white/10" : "bg-[var(--color-glass-bg)]"}`}
           initial={{ scaleX: 0 }}
           style={{ transformOrigin: "left" }}
         />

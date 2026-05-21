@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -13,18 +14,22 @@ const config: Config = {
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       colors: {
-        // SAP brand-aligned neutral palette
+        // All semantic colors point to CSS variables — both modes are handled in globals.css
         canvas: {
-          DEFAULT: "#0a0a0f",
-          soft: "#0f0f18",
-          raised: "#141420",
-          overlay: "#1a1a28",
+          DEFAULT: "var(--color-canvas)",
+          soft: "var(--color-canvas-soft)",
+          raised: "var(--color-canvas-raised)",
+          overlay: "var(--color-canvas-overlay)",
         },
         ink: {
-          DEFAULT: "#f0f0f5",
-          muted: "#9090a8",
-          subtle: "#60607a",
-          faint: "#30303f",
+          DEFAULT: "var(--color-ink)",
+          muted: "var(--color-ink-muted)",
+          subtle: "var(--color-ink-subtle)",
+          faint: "var(--color-ink-faint)",
+        },
+        border: {
+          DEFAULT: "var(--color-border)",
+          strong: "var(--color-border-strong)",
         },
         accent: {
           DEFAULT: "#0070f3",
@@ -34,10 +39,6 @@ const config: Config = {
         gold: {
           DEFAULT: "#f5a623",
           dim: "rgba(245,166,35,0.12)",
-        },
-        border: {
-          DEFAULT: "rgba(255,255,255,0.07)",
-          strong: "rgba(255,255,255,0.14)",
         },
       },
       spacing: {
@@ -74,13 +75,13 @@ const config: Config = {
       typography: {
         DEFAULT: {
           css: {
-            color: "#9090a8",
+            color: "var(--color-ink-muted)",
             a: { color: "#0070f3" },
-            h1: { color: "#f0f0f5" },
-            h2: { color: "#f0f0f5" },
-            h3: { color: "#f0f0f5" },
-            strong: { color: "#f0f0f5" },
-            code: { color: "#f0f0f5" },
+            h1: { color: "var(--color-ink)" },
+            h2: { color: "var(--color-ink)" },
+            h3: { color: "var(--color-ink)" },
+            strong: { color: "var(--color-ink)" },
+            code: { color: "var(--color-ink)" },
           },
         },
       },

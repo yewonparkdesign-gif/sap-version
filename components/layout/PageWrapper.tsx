@@ -14,7 +14,7 @@ export function PageWrapper({ children, className, prose }: PageWrapperProps) {
   return (
     <div
       className={cn(
-        "px-8 py-12 mx-auto",
+        "w-full px-8 py-12 mx-auto",
         prose ? "max-w-[960px]" : "max-w-[1200px]",
         className
       )}
@@ -51,7 +51,7 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <motion.div
-      className="mb-16 pb-12 border-b border-white/[0.07]"
+      className="mb-16 pb-12 border-b border-[var(--color-border)]"
       variants={staggerContainer(0.08)}
       initial="hidden"
       animate="show"
@@ -70,7 +70,7 @@ export function PageHeader({
             </span>
           )}
           {lastUpdated && (
-            <span className="text-[11px] text-ink-subtle">
+            <span className="text-[11px] text-[var(--color-ink-subtle)]">
               Updated{" "}
               {new Date(lastUpdated).toLocaleDateString("en-US", {
                 month: "short",
@@ -83,8 +83,8 @@ export function PageHeader({
       )}
 
       {/* Title */}
-      <motion.div variants={fadeUp} className="flex items-center gap-3 mb-4">
-        <h1 className="text-[3.5rem] font-bold leading-[1.08] tracking-[-0.03em] text-gradient">
+      <motion.div variants={fadeUp} className="flex items-center gap-3 mb-1">
+        <h1 className="text-[3.5rem] font-bold leading-[1.08] tracking-[-0.03em] text-gradient pb-3">
           {title}
         </h1>
         {badge && (
@@ -97,7 +97,7 @@ export function PageHeader({
       {subtitle && (
         <motion.p
           variants={fadeUp}
-          className="text-[1.25rem] text-ink-muted font-light leading-relaxed mb-6 max-w-[600px]"
+          className="text-[1.25rem] text-[var(--color-ink-muted)] font-light leading-relaxed mb-6"
         >
           {subtitle}
         </motion.p>
@@ -106,7 +106,7 @@ export function PageHeader({
       {description && (
         <motion.p
           variants={fadeUp}
-          className="text-[0.9375rem] text-ink-subtle leading-relaxed max-w-[640px]"
+          className="text-[0.9375rem] text-[var(--color-ink-subtle)] leading-relaxed"
         >
           {description}
         </motion.p>
@@ -118,7 +118,7 @@ export function PageHeader({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[11px] px-2.5 py-1 rounded-full bg-white/[0.05] text-ink-subtle border border-white/[0.07]"
+              className="text-[11px] px-2.5 py-1 rounded-full bg-[var(--color-glass-bg)] text-[var(--color-ink-subtle)] border border-[var(--color-border)]"
             >
               {tag}
             </span>

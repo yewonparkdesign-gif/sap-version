@@ -4,6 +4,7 @@ import { Sidebar, MobileDrawer } from "@/components/layout/Sidebar";
 import { TopBar } from "@/components/layout/TopBar";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { MobileNavProvider } from "@/components/layout/MobileNavProvider";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -28,20 +29,23 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme')||'dark';if(t==='dark')document.documentElement.classList.add('dark');})();` }} />
       </head>
       <body>
-        <MobileNavProvider>
-          <div className="flex h-dvh overflow-hidden">
-            <Sidebar />
-            <MobileDrawer />
-            <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-              <TopBar />
-              <main className="flex-1 overflow-y-auto">
-                <PageTransition>{children}</PageTransition>
-              </main>
+        <ThemeProvider>
+          <MobileNavProvider>
+            <div className="flex h-dvh overflow-y-hidden">
+              <Sidebar />
+              <MobileDrawer />
+              <div className="flex flex-col flex-1 min-w-0">
+                <TopBar />
+                <main className="flex-1 overflow-y-auto overflow-x-hidden">
+                  <PageTransition>{children}</PageTransition>
+                </main>
+              </div>
             </div>
-          </div>
-        </MobileNavProvider>
+          </MobileNavProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

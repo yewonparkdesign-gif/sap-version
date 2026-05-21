@@ -45,7 +45,8 @@
       "Bash(lsof *)",
       "Bash(ps *)",
       "Bash(kill *)",
-      "Bash(jq *)"
+      "Bash(jq *)",
+      "Bash(npx vercel *)"
     ],
     "deny": [
       "Bash(rm *)",

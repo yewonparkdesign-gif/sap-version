@@ -25,7 +25,6 @@ function SapLogo() {
   );
 }
 
-// Shared nav content used in both desktop sidebar and mobile drawer
 function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?: boolean }) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
@@ -64,8 +63,8 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
                             ? "px-4 py-3.5 text-[22px] font-bold tracking-tight"
                             : "px-3 py-2 text-[11px] font-extrabold",
                           isActive
-                            ? "bg-accent/10 text-white"
-                            : "text-white/55 hover:text-white/90 hover:bg-white/[0.05]"
+                            ? "bg-[var(--color-glass-active-bg)] text-[var(--color-ink)]"
+                            : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-glass-bg)]"
                         )}
                       >
                         {item.label}
@@ -81,7 +80,7 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
         return (
           <motion.div key={section.title} variants={slideInLeft}>
             {sectionIdx > 0 && (
-              <div className={cn("h-px bg-white/[0.06]", mobile ? "mx-4 my-4" : "mx-3 my-3")} />
+              <div className={cn("h-px bg-[var(--color-border)]", mobile ? "mx-4 my-4" : "mx-3 my-3")} />
             )}
             <button
               onClick={() => toggleSection(section.title)}
@@ -91,7 +90,7 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
               )}
             >
               <span className={cn(
-                "font-extrabold uppercase tracking-widest text-white/70 group-hover:text-white/90 transition-colors",
+                "font-extrabold uppercase tracking-widest text-[var(--color-ink-muted)] transition-colors",
                 mobile ? "text-[11px]" : "text-[11px]"
               )}>
                 {section.title}
@@ -99,7 +98,7 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
               <ChevronDown
                 size={mobile ? 15 : 13}
                 className={cn(
-                  "text-white/40 group-hover:text-white/60 transition-all duration-200",
+                  "text-[var(--color-ink-faint)] group-hover:text-[var(--color-ink-subtle)] transition-all duration-200",
                   isCollapsed && "-rotate-90"
                 )}
               />
@@ -127,8 +126,8 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
                               ? "px-4 py-3 text-[18px] font-medium"
                               : "px-3 py-2 text-[13px]",
                             isActive
-                              ? "bg-accent/10 text-white font-semibold"
-                              : "text-white/55 hover:text-white/90 hover:bg-white/[0.05]"
+                              ? "bg-[var(--color-glass-active-bg)] text-[var(--color-ink)] font-semibold"
+                              : "text-[var(--color-ink-subtle)] hover:text-[var(--color-ink)] hover:bg-[var(--color-glass-bg)]"
                           )}
                         >
                           <span>{item.label}</span>
@@ -151,16 +150,15 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
   );
 }
 
-// Desktop sidebar
 export function Sidebar() {
   return (
     <motion.aside
-      className="hidden lg:flex flex-col w-[260px] shrink-0 h-full border-r border-white/[0.07] bg-[#0a0a0f] overflow-y-auto scrollbar-none"
+      className="hidden lg:flex flex-col w-[260px] shrink-0 h-full border-r border-[var(--color-border)] bg-[var(--color-canvas)] overflow-y-auto scrollbar-none"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, ease }}
     >
-      <div className="px-5 pt-6 pb-5 border-b border-white/[0.07] shrink-0">
+      <div className="px-5 pt-6 pb-5 border-b border-[var(--color-border)] shrink-0">
         <Link href="/" className="block">
           <SapLogo />
         </Link>
@@ -169,21 +167,20 @@ export function Sidebar() {
       <NavContent />
 
       <motion.div
-        className="px-6 py-4 border-t border-white/[0.07] shrink-0"
+        className="px-6 py-4 border-t border-[var(--color-border)] shrink-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.4 }}
       >
-        <div className="text-[11px] text-ink-subtle">
+        <div className="text-[11px] text-[var(--color-ink-subtle)]">
           SAP.com Visual Uplift
-          <span className="ml-2 px-1.5 py-0.5 rounded bg-white/[0.06] text-[10px]">v1.0</span>
+          <span className="ml-2 px-1.5 py-0.5 rounded bg-[var(--color-glass-bg)] border border-[var(--color-border)] text-[10px]">v1.0</span>
         </div>
       </motion.div>
     </motion.aside>
   );
 }
 
-// Mobile drawer — rendered at layout level, triggered from TopBar
 export function MobileDrawer() {
   const { open, close } = useMobileNav();
 
@@ -191,22 +188,20 @@ export function MobileDrawer() {
     <AnimatePresence>
       {open && (
         <>
-          {/* Full-screen overlay */}
           <motion.div
-            className="fixed inset-0 z-50 flex flex-col bg-[#0a0a0f] lg:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-[var(--color-canvas)] lg:hidden"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 pt-6 pb-5 border-b border-white/[0.07] shrink-0">
+            <div className="flex items-center justify-between px-5 pt-6 pb-5 border-b border-[var(--color-border)] shrink-0">
               <Link href="/" onClick={close}>
                 <SapLogo />
               </Link>
               <button
                 onClick={close}
-                className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/[0.06] transition-colors"
+                className="p-2 rounded-lg text-[var(--color-ink-subtle)] hover:text-[var(--color-ink)] hover:bg-[var(--color-glass-bg)] transition-colors"
               >
                 <X size={18} />
               </button>
@@ -214,10 +209,10 @@ export function MobileDrawer() {
 
             <NavContent onLinkClick={close} />
 
-            <div className="px-6 py-4 border-t border-white/[0.07] shrink-0">
-              <div className="text-[11px] text-ink-subtle">
+            <div className="px-6 py-4 border-t border-[var(--color-border)] shrink-0">
+              <div className="text-[11px] text-[var(--color-ink-subtle)]">
                 SAP.com Visual Uplift
-                <span className="ml-2 px-1.5 py-0.5 rounded bg-white/[0.06] text-[10px]">v1.0</span>
+                <span className="ml-2 px-1.5 py-0.5 rounded bg-[var(--color-glass-bg)] border border-[var(--color-border)] text-[10px]">v1.0</span>
               </div>
             </div>
           </motion.div>

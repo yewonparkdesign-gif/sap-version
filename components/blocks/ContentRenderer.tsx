@@ -31,9 +31,9 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
     case "heading": {
       const Tag = `h${block.level}` as "h2" | "h3" | "h4";
       const styles = {
-        h2: "text-[1.75rem] font-bold tracking-tight text-ink mt-14 mb-5 pb-3 border-b border-white/[0.07]",
-        h3: "text-[1.25rem] font-semibold text-ink mt-10 mb-4",
-        h4: "text-[1rem] font-semibold text-ink-muted uppercase tracking-wider mt-8 mb-3",
+        h2: "text-[1.75rem] font-bold tracking-tight text-[var(--color-ink)] mt-14 mb-5 pb-3 border-b border-[var(--color-border)]",
+        h3: "text-[1.25rem] font-semibold text-[var(--color-ink)] mt-10 mb-4",
+        h4: "text-[1rem] font-semibold text-[var(--color-ink-muted)] uppercase tracking-wider mt-8 mb-3",
       };
       return (
         <motion.div
@@ -54,7 +54,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="text-[0.9375rem] text-ink-muted leading-[1.8] my-5 max-w-prose"
+          className="text-[0.9375rem] text-[var(--color-ink-muted)] leading-[1.8] my-5 max-w-prose"
         >
           {block.body}
         </motion.p>
@@ -81,7 +81,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           viewport={viewport}
           className="my-8"
         >
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-canvas-raised aspect-video">
+          <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-canvas-raised)] aspect-video">
             {block.image.src ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -91,12 +91,12 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center">
-                <span className="text-ink-subtle text-sm">{block.image.alt}</span>
+                <span className="text-[var(--color-ink-subtle)] text-sm">{block.image.alt}</span>
               </div>
             )}
           </div>
           {block.image.caption && (
-            <figcaption className="text-[12px] text-ink-subtle text-center mt-3">
+            <figcaption className="text-[12px] text-[var(--color-ink-subtle)] text-center mt-3">
               {block.image.caption}
             </figcaption>
           )}
@@ -170,15 +170,15 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="my-6 rounded-xl overflow-hidden border border-white/[0.07]"
+          className="my-6 rounded-xl overflow-hidden border border-[var(--color-border)]"
         >
           {block.label && (
-            <div className="px-4 py-2 bg-canvas-overlay border-b border-white/[0.07] text-[11px] text-ink-subtle font-mono">
+            <div className="px-4 py-2 bg-[var(--color-canvas-overlay)] border-b border-[var(--color-border)] text-[11px] text-[var(--color-ink-subtle)] font-mono">
               {block.label}
             </div>
           )}
-          <pre className="p-5 bg-canvas-raised overflow-x-auto">
-            <code className="text-[13px] font-mono text-ink-muted leading-relaxed">
+          <pre className="p-5 bg-[var(--color-canvas-raised)] overflow-x-auto">
+            <code className="text-[13px] font-mono text-[var(--color-ink-muted)] leading-relaxed">
               {block.code}
             </code>
           </pre>
@@ -192,7 +192,7 @@ function BlockRenderer({ block }: { block: ContentBlock }) {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="my-10 border-white/[0.07] origin-left"
+          className="my-10 border-[var(--color-border)] origin-left"
         />
       );
 

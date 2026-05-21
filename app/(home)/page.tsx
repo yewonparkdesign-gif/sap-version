@@ -87,7 +87,7 @@ export default function HomePage() {
     <div className="min-h-full">
 
       {/* Hero */}
-      <div className="relative overflow-hidden border-b border-white/[0.07]">
+      <div className="relative overflow-hidden border-b border-[var(--color-border)]">
         {/* Ambient atmosphere */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-20 left-1/3 w-[700px] h-[500px] rounded-full bg-blue-500/[0.07] blur-[140px]" />
@@ -118,10 +118,10 @@ export default function HomePage() {
             </motion.h1>
 
             {/* Sub */}
-            <motion.p variants={fadeUp} className="text-[1.125rem] text-ink-muted max-w-[520px] leading-relaxed mb-4">
+            <motion.p variants={fadeUp} className="text-[1.125rem] text-[var(--color-ink-muted)] max-w-[520px] leading-relaxed mb-4">
               The living art direction for SAP.com&apos;s 2026 visual uplift -- built for Sapphire and beyond.
             </motion.p>
-            <motion.p variants={fadeUp} className="text-[0.9375rem] text-ink-subtle max-w-[520px] leading-relaxed mb-10">
+            <motion.p variants={fadeUp} className="text-[0.9375rem] text-[var(--color-ink-subtle)] max-w-[520px] leading-relaxed mb-10">
               Premium, editorial, agentic. Every principle, color system, hero layout, and component pattern documented and ready to use.
             </motion.p>
 
@@ -148,13 +148,13 @@ export default function HomePage() {
           transition={{ duration: 0.4, ease }}
           className="mb-10"
         >
-          <div className="text-[11px] font-bold uppercase tracking-widest text-ink-subtle mb-3">
+          <div className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-ink-subtle)] mb-3">
             System sections
           </div>
-          <h2 className="text-[1.75rem] font-bold tracking-tight text-ink mb-2">
+          <h2 className="text-[1.75rem] font-bold tracking-tight text-[var(--color-ink)] mb-2">
             Everything in one place
           </h2>
-          <p className="text-[0.9375rem] text-ink-muted max-w-[480px]">
+          <p className="text-[0.9375rem] text-[var(--color-ink-muted)] max-w-[480px]">
             Eight sections covering the full visual language of SAP.com -- from first principles to production-ready patterns.
           </p>
         </motion.div>
@@ -170,22 +170,22 @@ export default function HomePage() {
             <motion.div key={section.title} variants={fadeUp}>
               <Link
                 href={section.href}
-                className="group block surface p-6 hover:border-white/[0.14] hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
+                className="group block surface p-6 hover:border-[var(--color-border-strong)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all duration-300"
               >
-                <div className={cn("w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center mb-5 text-ink-muted group-hover:text-ink transition-colors", section.color)}>
+                <div className={cn("w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center mb-5 text-[var(--color-ink-subtle)] group-hover:text-[var(--color-ink)] transition-colors", section.color)}>
                   {section.icon}
                 </div>
 
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-[15px] font-semibold text-ink group-hover:text-white transition-colors">
+                  <h3 className="text-[15px] font-semibold text-[var(--color-ink)]">
                     {section.title}
                   </h3>
-                  <span className="text-[11px] text-ink-subtle mt-0.5 shrink-0 ml-3">
+                  <span className="text-[11px] text-[var(--color-ink-subtle)] mt-0.5 shrink-0 ml-3">
                     {section.count} {section.count === 1 ? "page" : "pages"}
                   </span>
                 </div>
 
-                <p className="text-[13px] text-ink-muted leading-relaxed mb-5">
+                <p className="text-[13px] text-[var(--color-ink-muted)] leading-relaxed mb-5">
                   {section.description}
                 </p>
 
@@ -193,14 +193,14 @@ export default function HomePage() {
                   {section.items.map((item) => (
                     <span
                       key={item}
-                      className="text-[11px] px-2 py-0.5 rounded-md bg-white/[0.04] text-ink-subtle border border-white/[0.06]"
+                      className="text-[11px] px-2 py-0.5 rounded-md bg-[var(--color-glass-bg)] text-[var(--color-ink-subtle)] border border-[var(--color-border)]"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-1.5 mt-5 text-[12px] text-ink-subtle group-hover:text-accent transition-colors">
+                <div className="flex items-center gap-1.5 mt-5 text-[12px] text-[var(--color-ink-subtle)] group-hover:text-accent transition-colors">
                   <span>Explore</span>
                   <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -215,21 +215,21 @@ export default function HomePage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease }}
-          className="mt-16 p-8 rounded-2xl bg-canvas-raised border border-white/[0.07] flex flex-col md:flex-row gap-8 md:items-center"
+          className="mt-16 p-8 rounded-2xl bg-[var(--color-canvas-raised)] border border-[var(--color-border)] flex flex-col md:flex-row gap-8 md:items-center"
         >
           <div className="flex-1">
-            <div className="text-[11px] font-bold uppercase tracking-widest text-ink-subtle mb-3">About this system</div>
-            <p className="text-[0.9375rem] text-ink leading-relaxed mb-2">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-ink-subtle)] mb-3">About this system</div>
+            <p className="text-[0.9375rem] text-[var(--color-ink)] leading-relaxed mb-2">
               Built for the SAP.com 2026 Visual Uplift -- the largest design refresh of SAP.com ahead of Sapphire.
             </p>
-            <p className="text-[0.875rem] text-ink-muted leading-relaxed">
+            <p className="text-[0.875rem] text-[var(--color-ink-muted)] leading-relaxed">
               This living system documents the complete art direction: the Agentic Glass aesthetic, the new gradient color language, updated hero layouts, and product UI treatment across every page type on SAP.com.
             </p>
           </div>
           <div className="flex flex-col gap-2 shrink-0 md:w-48">
-            <div className="text-[11px] text-ink-subtle uppercase tracking-wider mb-1">Key themes</div>
+            <div className="text-[11px] text-[var(--color-ink-subtle)] uppercase tracking-wider mb-1">Key themes</div>
             {["Tech-forward, agentic", "Frosted glass surfaces", "Diamond blur backgrounds", "Extended color palette", "More product UI"].map((t) => (
-              <div key={t} className="flex items-center gap-2 text-[13px] text-ink-muted">
+              <div key={t} className="flex items-center gap-2 text-[13px] text-[var(--color-ink-muted)]">
                 <span className="w-1 h-1 rounded-full bg-accent/60 shrink-0" />
                 {t}
               </div>
