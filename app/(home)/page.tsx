@@ -230,7 +230,7 @@ export default function HomePage() {
           >
             {/* Event badge */}
             <motion.div variants={fadeUp}>
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[12px] font-medium mb-8 tracking-wide">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-[12px] font-medium mb-8 tracking-wide" style={{ background: "rgba(0,112,242,0.10)", border: "1px solid rgba(0,112,242,0.20)", color: "var(--color-accent)", WebkitTextFillColor: "var(--color-accent)" }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 Sapphire 2026 -- Visual Uplift
               </div>

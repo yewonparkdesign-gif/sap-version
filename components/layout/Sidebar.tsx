@@ -149,7 +149,7 @@ function NavContent({ onLinkClick, mobile }: { onLinkClick?: () => void; mobile?
                             {item.label}
                           </span>
                           {item.badge && (
-                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-accent/20 text-accent">
+                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full" style={{ background: "rgba(0,112,242,0.15)", color: "var(--color-accent)" }}>
                               {item.badge}
                             </span>
                           )}

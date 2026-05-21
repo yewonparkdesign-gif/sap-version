@@ -77,7 +77,7 @@ export function PageHeader({
           {title}
         </h1>
         {badge && (
-          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-accent/20 text-accent self-center mt-1">
+          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full self-center mt-1" style={{ background: "rgba(0,112,242,0.15)", color: "var(--color-accent)", WebkitTextFillColor: "var(--color-accent)" }}>
             {badge}
           </span>
         )}

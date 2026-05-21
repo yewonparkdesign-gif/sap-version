@@ -62,7 +62,7 @@ export function PrincipleTemplate({ page }: PrincipleTemplateProps) {
                 variants={fadeUp}
                 className="flex items-start gap-3 text-[14px] text-[var(--color-ink-muted)]"
               >
-                <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-[10px] font-medium flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full text-[10px] font-medium flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(0,112,242,0.10)", color: "var(--color-accent)" }}>
                   {i + 1}
                 </span>
                 {idea}
